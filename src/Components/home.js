@@ -39,7 +39,7 @@ export default function Middle() {
         <>
             <div className={full? "hehe" : "haha"}></div>
             <Video />
-            <Header>JUST LET IT HAPPEN</Header>
+            <Header>JUST LET IT HAPPEN!</Header>
             <Button onClick={() => { fun1()}}>DONT CLICK ME!!!</Button>
         </>
     )
