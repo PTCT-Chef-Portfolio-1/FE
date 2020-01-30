@@ -2,19 +2,17 @@ import React from 'react';
 import { Route } from "react-router-dom";
 import './App.css';
 import Home from './Components/home';
-
 import RegisterPage from './Components/RegisterPage';
 import NavBar from './Components/NavBar';
+import login from './Components/login'
 
 function App() {
-  return (
-    <div>
-    <NavBar />
-      <Route exact path ="/" component={Home} />
-      <Route path ="/RegisterPage" component={RegisterPage} />
-    </div>
-    
-
+  return ( <>
+    <NavBar />         
+    <Route exact path ="/" component={Home} />
+    <Route exact path="/login" component={login} />
+    <Route path ="/RegisterPage" component={RegisterPage} />
+    </>
   );
 }
 
