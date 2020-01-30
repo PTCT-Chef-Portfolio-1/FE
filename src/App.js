@@ -7,7 +7,7 @@ import login from './Components/login'
 function App() {
   return ( <>
     <Route exact path ="/" component={Home} />
-    <Route path="/login" component={login} />
+    <Route exact path="/login" component={login} />
     </>
   );
 }
