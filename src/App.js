@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from "react-router-dom";
 import './App.css';
 import Home from './Components/home';
-
+import RegisterPage from './Components/RegisterPage';
 import NavBar from './Components/NavBar';
 import login from './Components/login'
 
@@ -11,6 +11,7 @@ function App() {
     <NavBar />         
     <Route exact path ="/" component={Home} />
     <Route exact path="/login" component={login} />
+    <Route path ="/RegisterPage" component={RegisterPage} />
     </>
   );
 }
