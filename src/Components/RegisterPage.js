@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import '../App.css';
 import axios from 'axios';
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
@@ -7,7 +7,7 @@ import { TextInput } from "./TextInput";
 import { Checkbox } from "./Checkbox";
 import { Select } from "./Select";
 
-const RegisterForm = () => {
+const RegisterPage = () => {
   return (
     <>
       <h1>Welcome Please Register</h1>
@@ -96,4 +96,4 @@ function doStuff(values){
 
 
 
-export default RegisterForm;
+export default RegisterPage;

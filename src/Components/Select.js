@@ -1,6 +1,6 @@
 import React from "react";
 import { useField } from "formik";
-import { StyledLabel, StyledSelect, StyledErrorMessage } from "./StyledSelect";
+import { StyledLabel, StyledSelect, StyledErrorMessage } from "react-styled-select";
 
 
 export const Select = ({ label, ...props }) => {
