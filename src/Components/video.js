@@ -10,7 +10,7 @@ export default function video() {
     min-height: 100%;
     width: auto;
     height: auto;
-    z-index: 1;
+    z-index: -1;
     transform: translateX(-50%) translateY(-50%);
     `
     return (
