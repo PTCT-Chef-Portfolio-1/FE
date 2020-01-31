@@ -5,9 +5,18 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { TextInput } from "./TextInput";
 import { Checkbox } from "./Checkbox";
-import { Select } from "./Select";
+// import { SelectDropdown } from "./Select";
+import Select from 'react-styled-select';
 
 const RegisterPage = () => {
+
+  const options = [
+    { label: "Role", value: 1},
+    { label: "Chef", value: 2},
+    { label: "Foodie", value: 3},
+    { label: "Other", value: 4},
+  ]
+
   return (
     <>
       <h1>Welcome Please Register</h1>
@@ -66,11 +75,7 @@ const RegisterPage = () => {
             type="email"
             placeholder="Email"
           />
-          <Select label="User Type" name="userType">
-            <option value="Role">Role</option>
-            <option value="Chef">Chef</option>
-            <option value="Foodie">Foodie</option>
-            <option value="other">Other</option>
+          <Select label="User Type" name="userType" options={options}>
           </Select>
           <Checkbox name="acceptedTerms">
             I accept the terms and conditions
