@@ -10,6 +10,9 @@ import {
 
   const userId = localStorage.getItem("userId");
   const initialState = {
+    loggedIn: false,
+    fetchingData: false,
+    error: '',
     chefInfo: {
       full_name: "",
       location: "",
@@ -65,7 +68,7 @@ import {
         return {
             ...state,
             fetchingData: false,
-            friends: action.payload
+            recipe: action.payload
         };
         case GET_DATA_FAIL:
         return {

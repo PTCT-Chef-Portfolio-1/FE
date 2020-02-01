@@ -5,7 +5,6 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { TextInput } from "./TextInput";
 import { Checkbox } from "./Checkbox";
-// import { SelectDropdown } from "./Select";
 import Select from 'react-styled-select';
 
 const RegisterPage = () => {
