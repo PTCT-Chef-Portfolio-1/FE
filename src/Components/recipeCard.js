@@ -18,6 +18,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 345,
+    border: '1px solid black'
   },
   media: {
     height: 0,
@@ -38,7 +39,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function recipeCard({recipe_name, recipe_photo, ingredients, cook_time, prep_time, instructions, servings}) {
+export default function RecipeCard( {recipe_name, recipe_photo, ingredients, cook_time, prep_time, instructions, servings} ) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
