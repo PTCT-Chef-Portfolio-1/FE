@@ -1,7 +1,7 @@
 
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
-import Card from '@material-ui/core/Card';
+// import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
@@ -20,26 +20,11 @@ import React, { useEffect, useState } from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
 
-export default function recipeCard(props) {
-  const {name, recipe, image, ingredients, cookTime, prepTime, instructions, servings} = props
-    const [cardData, setCardData] = useState([]);
+// export default function recipeCard(info) {
 
-    useEffect(() => {
-        axios.get('https://backend-chef.herokuapp.com/api/recipes/')
-        .then(res => {
-        console.log (res.data.results)
-        setCardData (res.data.results)
-        })
-        .catch(err => {
-        console.log('No data to display', err);
-        })
-    }, []);
-
-    console.log(Card);
-
-    return (
-        <div>
-          <section>
+//     return (
+//         <div>
+          {/* <section>
             {cardData.map((info, index) => {
               return <recipeCard 
               key = {index}
@@ -53,46 +38,46 @@ export default function recipeCard(props) {
               servings = {info.servings}
               />
             })}
-          </section>
-            <Card>
+          </section> */}
+            {/* <Card>
                 <CardBody>
-                  <CardTitle>{recipe}</CardTitle>
-                  <CardText>{name}</CardText>
+                  <CardTitle>{info.recipe_name}</CardTitle>
+                  <CardText>{info.chef_name}</CardText>
                 </CardBody>
-                <CardImg width="75%" src={image} alt="Card image cap" />
+                <CardImg width="75%" src={info.recipe_photo} alt="Card image cap" />
                 <CardBody>
-                  <CardText>{ingredients}</CardText>
-                  <CardText>{cookTime}</CardText>
-                  <CardText>{prepTime}</CardText>
+                  <CardText>{info.ingredients}</CardText>
+                  <CardText>{info.cook_time}</CardText>
+                  <CardText>{info.prep_time}</CardText>
                 </CardBody>
             </Card>
         </div>
     );
-}
+} */}
 
 
-const useStyles = makeStyles(theme => ({
-  card: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
-  expand: {
-    transform: 'rotate(0deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  expandOpen: {
-    transform: 'rotate(180deg)',
-  },
-  avatar: {
-    backgroundColor: red[500],
-  },
-}));
+// const useStyles = makeStyles(theme => ({
+//   card: {
+//     maxWidth: 345,
+//   },
+//   media: {
+//     height: 0,
+//     paddingTop: '56.25%', // 16:9
+//   },
+//   expand: {
+//     transform: 'rotate(0deg)',
+//     marginLeft: 'auto',
+//     transition: theme.transitions.create('transform', {
+//       duration: theme.transitions.duration.shortest,
+//     }),
+//   },
+//   expandOpen: {
+//     transform: 'rotate(180deg)',
+//   },
+//   avatar: {
+//     backgroundColor: red[500],
+//   },
+// }));
 
 export default function RecipeCard() {
   const classes = useStyles();

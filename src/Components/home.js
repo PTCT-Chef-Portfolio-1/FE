@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import styled from 'styled-components';
+//import recipeCard from "./recipeCard";
+import RecipeCard from "./recipeCard";
 //import Video from './video';
 //import '../App.css';
 
@@ -58,9 +60,9 @@ export default function Home() {
 
     useEffect(() => {
         axios
-            .get(`https://backend-chef.herokuapp.com/api/recipes/`)
+            .get(`https://chef-2.herokuapp.com/api/recipes/`)
             .then(res => {
-                SetRecipes(res.data.results);
+                SetRecipes(res.data);
                 console.log(res.data);
             })
             .catch(err => {
@@ -72,9 +74,24 @@ export default function Home() {
 
         return (
             <HomeWrapper>
-                {recipes.map(recipe => {
-                    return <Card recipe={recipe} key={recipe.created}/>
-                })}
+                {recipes.map((info, index) => (
+                        <recipeCard 
+                        key = {index}
+                        name = {info.chef_name}
+                        recipe = {info.recipe_name}
+                        image = {info.recipe_photo}
+                        ingredients = {info.ingredients}
+                        cookTime = {info.cook_time}
+                        prepTime = {info.prep_time}
+                        instructions = {info.instructions}
+                        servings = {info.servings}
+                    />
+                ))}   
+
+                {/* {recipes.map((info, index) => {
+                    return <recipeCard info={info} key={info.created} />
+                  })} */}
+          
             </HomeWrapper>
         )
 
