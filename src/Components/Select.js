@@ -3,7 +3,7 @@ import { useField } from "formik";
 import { StyledLabel, StyledSelect, StyledErrorMessage } from "react-styled-select";
 
 
-export const Select = ({ label, ...props }) => {
+export const SelectDropdown = ({ label, ...props }) => {
 
     const [field, meta] = useField(props);
     return (<>
