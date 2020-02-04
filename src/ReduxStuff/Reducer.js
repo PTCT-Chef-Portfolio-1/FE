@@ -1,7 +1,18 @@
 import {
+  LOGIN_START,
+  LOGIN_SUCCESS,
+  GET_DATA_START,
+  GET_DATA_SUCCESS,
+  GET_DATA_FAIL,
+  ADD_NEW_RECIPE,
+  DELETE_LOGIN
   } from "./Actions";
+
   const userId = localStorage.getItem("userId");
   const initialState = {
+    loggedIn: false,
+    fetchingData: false,
+    error: '',
     chefInfo: {
       full_name: "",
       location: "",
@@ -28,9 +39,49 @@ import {
   
   export const reducer = (state = initialState, action) => {
     switch (action.type) {
-
-
-      default:
+      case LOGIN_START:
+        return {
+            ...state,
+            loggedIn: true,
+            error: ''
+        };
+        case LOGIN_SUCCESS:
+        return {
+            ...state,
+            loggedIn: false,
+            error: ''
+        };
+        case DELETE_LOGIN:
+            return {
+                ...state,
+                loggedIn: false,
+                fetchingData: false,
+                error: ''
+            }
+        case GET_DATA_START:
+        return {
+            ...state,
+            fetchingData: true,
+            error: ''
+        };
+        case GET_DATA_SUCCESS:
+        return {
+            ...state,
+            fetchingData: false,
+            recipe: action.payload
+        };
+        case GET_DATA_FAIL:
+        return {
+            ...state,
+            fetchingData: false,
+            error: action.payload
+        };
+        case ADD_NEW_RECIPE:
+        return {
+            ...state,
+            recipe: [...state.recipe, action.payload]
+        };
+        default:
         return state;
     }
   };
