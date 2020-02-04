@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import styled from 'styled-components';
 
-import recipeCard from './recipeCard'
+import RecipeCard from './recipeCard'
 
 const HomeWrapper = styled.div `
     display: flex;
