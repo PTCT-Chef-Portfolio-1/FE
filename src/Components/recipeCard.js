@@ -65,12 +65,7 @@ export default function RecipeCard( {recipe_name, recipe_photo, ingredients, coo
         image={recipe_photo}
       />
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
+        
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
@@ -88,11 +83,12 @@ export default function RecipeCard( {recipe_name, recipe_photo, ingredients, coo
           <Typography paragraph>
             {ingredients}
           </Typography>
+          <Typography paragraph>Instructions</Typography>
           <Typography paragraph>
             {instructions}
           </Typography>
           <Typography paragraph>
-            {cook_time} {prep_time}, {servings}
+            Cook Time: {cook_time} Prep Time: {prep_time} Servings: {servings}
           </Typography>
         </CardContent>
       </Collapse>

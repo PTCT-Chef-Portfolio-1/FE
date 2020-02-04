@@ -16,7 +16,7 @@ export default function Home() {
 
     useEffect(() => {
         axios
-            .get(`https://chef-2.herokuapp.com/api/recipes/`)
+            .get(`https://backend-chef.herokuapp.com/api/recipes/`)
             .then(res => {
                 SetRecipes(res.data);
                 console.log(res.data);
