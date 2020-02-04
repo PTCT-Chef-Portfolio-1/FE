@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
 export default function RecipeReviewCard() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-  const {recipe, image, ingredients, cookTime, prepTime, instructions, servings} = props
+  const {recipe_name, recipe_photo, ingredients, cook_time, prep_time, instructions, servings} = props
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -55,12 +55,12 @@ export default function RecipeReviewCard() {
             <MoreVertIcon />
           </IconButton>
         }
-        title= {recipe}
+        title= {recipe_name}
         
       />
       <CardMedia
         className={classes.media}
-        image={image}
+        image={recipe_photo}
       />
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
@@ -90,7 +90,7 @@ export default function RecipeReviewCard() {
             {instructions}
           </Typography>
           <Typography paragraph>
-            {cookTime} {prepTime}, {servings}
+            {cook_time} {prep_time}, {servings}
           </Typography>
         </CardContent>
       </Collapse>
