@@ -9,7 +9,7 @@ import login from './Components/login'
 function App() {
   return ( <>
     <NavBar />         
-    <Route exact path ="/" component={Home} />
+    <Route exact path ="/home" component={Home} />
     <Route exact path="/login" component={login} />
     <Route path ="/RegisterPage" component={RegisterPage} />
     </>
