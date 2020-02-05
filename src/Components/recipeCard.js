@@ -39,7 +39,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
 export default function RecipeCard( {recipe_name, recipe_photo, ingredients, cook_time, prep_time, instructions, servings} ) {
+
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
