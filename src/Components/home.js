@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import styled from 'styled-components';
 
-import recipeCard from './recipeCard'
+import RecipeCard from './recipeCard'
 
 const HomeWrapper = styled.div `
     display: flex;
@@ -16,7 +16,7 @@ export default function Home() {
 
     useEffect(() => {
         axios
-            .get(`https://chef-2.herokuapp.com/api/recipes/`)
+            .get(`https://backend-chef.herokuapp.com/api/recipes/`)
             .then(res => {
                 SetRecipes(res.data);
                 console.log(res.data);
