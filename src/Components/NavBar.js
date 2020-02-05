@@ -43,13 +43,13 @@ const Nav = () => {
       </nav>
 
       <nav className={!loggedIn ? "logged" : "out"}>
-        <Link to="/">
+        <Link to="/home">
           <img className="logo" src={require("../images/chef.jpg")} />
         </Link>
         <div className="links">
           <Link className="link" to="/recipes">Recipes</Link>
           <Link className="link" to="/login">Sign In</Link>
-          <Link className="link" to="/">Home</Link>
+          <Link className="link" to="/home">Home</Link>
         </div>
       </nav>
     </div>

@@ -10,7 +10,7 @@ import HomeSearch from './Components/home-search';
 function App() {
   return ( <>
     <NavBar />   
-    <HomeSearch />      
+    {/* <HomeSearch />       */}
     <Route exact path ="/home" component={Home} />
     <Route exact path="/login" component={login} />
     <Route path ="/RegisterPage" component={RegisterPage} />
