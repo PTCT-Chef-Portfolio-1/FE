@@ -3,8 +3,10 @@ import axios from "axios";
 import styled from 'styled-components';
 
 import RecipeCard from './recipeCard'
+import HomeSearch from './home-search';
 
 const HomeWrapper = styled.div `
+    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -42,5 +44,6 @@ export default function Home() {
                 ))}
 
             </HomeWrapper>
+    
         );
 }
