@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import styled from 'styled-components';
-import RecipeCard from './recipeCard';
+
+import RecipeCard from './recipeCard'
+import HomeSearch from './home-search';
 
 const HomeWrapper = styled.div `
     width: 100%;

@@ -10,15 +10,15 @@ import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const useStyles = makeStyles(theme => ({
   card: {
+    minWidth: 345,
     maxWidth: 345,
-    border: '1px solid black'
+    margin: 100,
+    // border: '1px solid black'
   },
   media: {
     height: 0,
@@ -65,12 +65,7 @@ export default function RecipeCard( {recipe_name, recipe_photo, ingredients, coo
         image={recipe_photo}
       />
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
+        
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
@@ -88,11 +83,12 @@ export default function RecipeCard( {recipe_name, recipe_photo, ingredients, coo
           <Typography paragraph>
             {ingredients}
           </Typography>
+          <Typography paragraph>Instructions</Typography>
           <Typography paragraph>
             {instructions}
           </Typography>
           <Typography paragraph>
-            {cook_time} {prep_time}, {servings}
+            Cook Time: {cook_time} Prep Time: {prep_time} Servings: {servings}
           </Typography>
         </CardContent>
       </Collapse>
