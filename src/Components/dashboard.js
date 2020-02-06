@@ -19,7 +19,7 @@ export default function Dashboard() {
 
         return (
             <section className="recipe-list">
-                 <RecipeCard 
+                 {/* <RecipeCard 
                     chef_name={recipes.chef_name}
                     recipe_photo={recipes.recipe_photo}
                     recipe_name={recipes.recipe_name} 
@@ -28,7 +28,22 @@ export default function Dashboard() {
                     prep_time={recipes.prep_time}
                     instructions={recipes.instructions}
                     servings={recipes.servings}
-                    />
+                    /> */}
+
+                    {posts.map((post) => {
+                        return (
+                             <p key={post._id}>
+                                {post.chef_name}
+                                {post.recipe_photo}
+                                {post.recipe_name} 
+                                {post.ingredients}
+                                {post.cook_time}
+                                {post.prep_time}
+                                {post.instructions}
+                                {post.servings}
+                            </p>
+                        )
+                    })}
                 <div className="post-add-edit">
                     <button>Edit recipe</button>
                     <Link className="add" to="/add">Add New Recipe</Link>

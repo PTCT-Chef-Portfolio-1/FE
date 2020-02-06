@@ -12,11 +12,16 @@ export default function HomeSearch() {
         .get(`https://backend-chef.herokuapp.com/api/recipes`)
         .then(res => {
           console.log(res.data)
-          const sortData = res.data.results.filter(e => 
-            e.recipe_name.toLowerCase().includes(search.toLowerCase())  
-          );
-          
-          setFiltered(sortData);
+        //   const filtered = res.data.filter(filter => {
+        //       console.log(search === filter.recipe_name, filter.chef_name, filter.ingredient)
+        //       return filter.recipe_name.toLowerCase().includes(search.toLowerCase()) 
+        //       || filter.chef_name.toLowerCase().includes(search.toLowerCase()) 
+        //         || filter.ingredient.toLowerCase().includes(search.toLowerCase())
+        //   });
+            const filtered = res.data.filter(filter => 
+              filter.recipe_name.toLowerCase().includes(search.toLowerCase())  
+            );
+          setFiltered(filtered);
       })  
         .catch(err => {
           console.log("The data was not returned", err);
@@ -37,26 +42,30 @@ export default function HomeSearch() {
             placeholder="Search Recipes, Meal types, Chefs, and Ingredients!"
             onChange={handleChange}
             value={search}
-            onChange = {handleChange}
+            size="50"
+            
          />
-        <button type="submit">Search</button>
+        <button className="search-button" type="submit">Search</button>
         </label>
         <div>
-          <ul>
-            {filtered.map(recipes => (
-            <RecipeCard 
-            chef_name={recipes.chef_name}
-            recipe_photo={recipes.recipe_photo}
-            recipe_name={recipes.recipe_name} 
-            ingredients={recipes.ingredients}
-            cook_time={recipes.cook_time}
-            prep_time={recipes.prep_time}
-            instructions={recipes.instructions}
-            servings={recipes.servings}
-            />
-            ))}
-          </ul>
-             
+             {filtered.map(recipes => (
+                 <RecipeCard 
+                    chef_name={recipes.chef_name}
+                    recipe_photo={recipes.recipe_photo}
+                    recipe_name={recipes.recipe_name} 
+                    ingredients={recipes.ingredients}
+                    cook_time={recipes.cook_time}
+                    prep_time={recipes.prep_time}
+                    instructions={recipes.instructions}
+                    servings={recipes.servings}
+                    />
+                ))}
+
+                {/* {filtered.map((filter, index) => {
+                    return (
+                        <RecipeCard filter={filter} key={filter.created} />
+                    )
+                })} */}
     </div>
    </section>
   );
