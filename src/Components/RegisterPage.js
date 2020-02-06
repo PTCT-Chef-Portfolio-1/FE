@@ -84,7 +84,7 @@ import Select from 'react-styled-select';
 // };
 
 // function doStuff(values){
-//   return axios.post("https://chefs-view.herokuapp.com/users",values
+//   return axios.post("https://reqres.in/api/users/",values
 //     ).then(res => {
 //       console.log("success", res);
 //       localStorage.setItem('values', res.data.values)
