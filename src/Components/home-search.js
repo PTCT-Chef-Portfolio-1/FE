@@ -12,12 +12,15 @@ export default function HomeSearch() {
         .get(`https://backend-chef.herokuapp.com/api/recipes`)
         .then(res => {
           console.log(res.data)
-          const filtered = res.data.filter(filter => {
-              console.log(search === filter.recipe_name, filter.chef_name, filter.ingredient)
-              return filter.recipe_name.toLowerCase().includes(search.toLowerCase()) 
-              || filter.chef_name.toLowerCase().includes(search.toLowerCase()) 
-                || filter.ingredient.toLowerCase().includes(search.toLowerCase())
-          });
+        //   const filtered = res.data.filter(filter => {
+        //       console.log(search === filter.recipe_name, filter.chef_name, filter.ingredient)
+        //       return filter.recipe_name.toLowerCase().includes(search.toLowerCase()) 
+        //       || filter.chef_name.toLowerCase().includes(search.toLowerCase()) 
+        //         || filter.ingredient.toLowerCase().includes(search.toLowerCase())
+        //   });
+            const filtered = res.data.filter(filter => 
+              filter.recipe_name.toLowerCase().includes(search.toLowerCase())  
+            );
           setFiltered(filtered);
       })  
         .catch(err => {
@@ -41,8 +44,10 @@ export default function HomeSearch() {
             placeholder="Search Recipes, Meal types, Chefs, and Ingredients!"
             onChange={handleChange}
             value={search}
+            size="50"
+            
          />
-        <button type="submit">Search</button>
+        <button className="search-button" type="submit">Search</button>
         </label>
         <div>
              {filtered.map(recipes => (
@@ -57,6 +62,12 @@ export default function HomeSearch() {
                     servings={recipes.servings}
                     />
                 ))}
+
+                {/* {filtered.map((filter, index) => {
+                    return (
+                        <RecipeCard filter={filter} key={filter.created} />
+                    )
+                })} */}
     </div>
    </section>
   );
