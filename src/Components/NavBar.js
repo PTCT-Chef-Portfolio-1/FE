@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "../App.css";
 
-const Nav = () => {
-  function signOut() {
-    localStorage.removeItem("token");
+function Nav() {
+
+  const histroy = useHistory();
+  const token = localStorage.getItem('token');
+
+  const signOut = () => {
+    localStorage.clear();
     localStorage.removeItem("reload");
     window.location.reload();
   }
+
   const [loggedIn, setLoggedIn] = useState(false);
+  
   useEffect(() => {
     if (localStorage.getItem("token")) {
       setLoggedIn(true);

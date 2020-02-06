@@ -6,14 +6,17 @@ import RegisterPage from './Components/RegisterPage';
 import NavBar from './Components/NavBar';
 import login from './Components/login'
 import HomeSearch from './Components/home-search';
+import PrivateRoute from './utilities/PrivateRoute';
+// import Dashboard from './Components/dashboard';
 
 function App() {
   return ( <>
     <NavBar />   
-    {/* <HomeSearch />       */}
+    <HomeSearch />      
     <Route exact path ="/home" component={Home} />
     <Route exact path="/login" component={login} />
     <Route path ="/RegisterPage" component={RegisterPage} />
+    {/* <PrivateRoute parth="/dashboard" component={Dashboard} /> */}
     </>
   );
 }

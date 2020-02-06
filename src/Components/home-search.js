@@ -4,32 +4,31 @@ import RecipeCard from "./recipeCard";
 
 
 export default function HomeSearch() {
+    const [ data, setData ] = useState([]);
     const [search, setSearch] = useState("");
-    const [filtered, setFiltered] = useState([]);
+    const [ filtered, setFiltered ] = useState([]);
     
     useEffect(() => {
       axios
         .get(`https://backend-chef.herokuapp.com/api/recipes`)
         .then(res => {
-          console.log(res.data)
+          // console.log(res.data)
           const filtered = res.data.filter(filter => {
-              console.log(search === filter.recipe_name, filter.chef_name, filter.ingredient)
-              return filter.recipe_name.toLowerCase().includes(search.toLowerCase()) 
-              || filter.chef_name.toLowerCase().includes(search.toLowerCase()) 
-                || filter.ingredient.toLowerCase().includes(search.toLowerCase())
+              console.log(search === filter.recipe_name)
+              filter.recipe_name.toLowerCase().includes(search.toLowerCase()) 
+              // || filter.chef_name.toLowerCase().includes(search.toLocaleLowerCase()) 
+              //   || filter.ingredient.toLowerCase().includes(search.toLocaleLowerCase())
           });
           setFiltered(filtered);
       })  
-        .catch(err => {
-          console.log("The data was not returned", err);
-        })
       }, [search]);
 
-      console.log(filtered);
+      // console.log(filtered);
 
       const handleChange = e => {
-        e.preventDefault();
+        // e.preventDefault();
         setSearch(e.target.value)
+        setFiltered(e.target.value)
             
       };
      
@@ -37,7 +36,8 @@ export default function HomeSearch() {
         <section className="search-bar">
          <label>
          <input
-            type="text"
+            id="search"
+            type="search"
             placeholder="Search Recipes, Meal types, Chefs, and Ingredients!"
             onChange={handleChange}
             value={search}
@@ -45,8 +45,10 @@ export default function HomeSearch() {
         <button type="submit">Search</button>
         </label>
         <div>
-             {filtered.map(recipes => (
+             {data.map((recipes => {
+               return (
                  <RecipeCard 
+                    id={recipes.id}
                     chef_name={recipes.chef_name}
                     recipe_photo={recipes.recipe_photo}
                     recipe_name={recipes.recipe_name} 
@@ -56,7 +58,8 @@ export default function HomeSearch() {
                     instructions={recipes.instructions}
                     servings={recipes.servings}
                     />
-                ))}
+                )})
+             )}
     </div>
    </section>
   );
