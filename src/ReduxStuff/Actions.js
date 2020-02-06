@@ -32,9 +32,21 @@ export const getData = () => dispatch => {
         });
 };
 
-export const addRecipe = newRecipe => {
-    return {
-        type: ADD_NEW_RECIPE,
-        payload: newRecipe
-    };
+export const ADD_RECIPE_START = "ADD_RECIPE_START";
+export const ADD_RECIPE_SUCCESS = "ADD_RECIPE_SUCCESS";
+export const ADD_RECIPE_FAILURE = "ADD_RECIPE_FAILURE";
+
+export const addRecipe = recipe => dispatch => {
+  dispatch({ type: ADD_RECIPE_START, payload: recipe });
+  console.log(recipe);
+  AxiosWithAuth()
+    .post("/recipes/post", recipe)
+    .then(res => {
+      dispatch({ type: ADD_RECIPE_SUCCESS });
+
+      console.log(`this is the response ${res.data}`);
+    })
+    .catch(err => {
+      dispatch({ type: ADD_RECIPE_FAILURE, payload: err.response });
+    });
 };

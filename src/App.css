@@ -76,6 +76,8 @@
   justify-content: center;
   align-items: center;
   padding: 0;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .search-bar input{
@@ -87,5 +89,49 @@
   width: 60px;
   height: 30px;
   margin: 10px;
+
+}
+
+.searchCards{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.Recipe-Day{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #E0E6E6;
+}
+
+
+.closed{
+  display: none;
+}
+
+.editModal{
+  width: 30%;
+  height: 100vh;
+  top: 0;
+  min-width: 400px;
+  text-align:center;
+  position: fixed;
+  margin: auto;
+  background-color: grey;
+}
+
+.Dashboard{
+  background-color: hotpink;
+}
+
+.PostForm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
 }

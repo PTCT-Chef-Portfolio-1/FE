@@ -5,7 +5,10 @@ import {
   GET_DATA_SUCCESS,
   GET_DATA_FAIL,
   ADD_NEW_RECIPE,
-  DELETE_LOGIN
+  DELETE_LOGIN,
+  ADD_RECIPE_START,
+  ADD_RECIPE_SUCCESS,
+  ADD_RECIPE_FAILURE
   } from "./Actions";
 
   const userId = localStorage.getItem("userId");
@@ -30,7 +33,6 @@ import {
         recipe_photo: "",
         ingredients: "",
         instructions: "",
-        user_id: userId
       }
     ],
     allRecipes: [
@@ -76,11 +78,23 @@ import {
             fetchingData: false,
             error: action.payload
         };
-        case ADD_NEW_RECIPE:
-        return {
+        case ADD_RECIPE_START:
+          return {
             ...state,
-            recipe: [...state.recipe, action.payload]
-        };
+            isFetching: true
+          };
+        case ADD_RECIPE_SUCCESS:
+          return {
+            ...state,
+            isFetching: false,
+            error: ""
+          };
+        case ADD_RECIPE_FAILURE:
+          return {
+            ...state,
+            isFetching: false,
+            error: action.payload
+          };
         default:
         return state;
     }

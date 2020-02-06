@@ -49,7 +49,7 @@ export default function HomeSearch() {
          />
         <button className="search-button" type="submit">Search</button>
         </label>
-        <div>
+        <div className="searchCards">
              {filtered.map(recipes => (
                  <RecipeCard 
                     chef_name={recipes.chef_name}
