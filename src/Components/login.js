@@ -1,11 +1,12 @@
 import React, {Component} from "react";
 import Axios from "axios";
+import AxioWithAuth, { AxiosWithAuth } from '../AxiosWithAuth'
 import {Link} from "react-router-dom";
 
 
 class login extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             name: "",
             email: "",
@@ -18,14 +19,17 @@ class login extends Component {
     onSubmit = e => {
         e.preventDefault();
         const loginData = {
-            name: this.state.name,
-            email: this.state.email,
+            username: this.state.email,
             password: this.state.password
         };
-        Axios()
-            .post()
+        console.log(loginData)
+        Axios
+            .post('https://backend-chef.herokuapp.com/api/login/login', loginData)
             .then(res => {
-                
+                console.log(res.data)
+                localStorage.setItem("token", res.data.token);
+                localStorage.setItem("userId", res.data.id);
+                this.props.history.push(`/chefdashboard/${localStorage.getItem('userId')}`)
             })
             .catch (err => console.log(err));
 
@@ -36,7 +40,7 @@ class login extends Component {
             <div>
                 <h3>Login</h3>
                 <form noValidate onSubmit={this.onSubmit}>
-                    <label htmlFor="name"> 
+                    {/* <label htmlFor="name"> 
                         <input
                             placeholder= "Name"
                             onChange={this.onChange}
@@ -45,9 +49,9 @@ class login extends Component {
                             id="name"
                             type="name"
                         />
-                    </label>
+                    </label> */}
 
-                    <label htmlFor="email"> 
+                    <label htmlFor="Username"> 
                         <input
                             placeholder= "Email"
                             onChange={this.onChange}
