@@ -111,8 +111,9 @@ const RegisterPage = () => {
           firstName: "",
           lastName: "",
           email: "",
-          acceptedTerms: false,
-          userType: ""
+          password: ""
+          // acceptedTerms: false,
+          // userType: ""
         }}
         validationSchema={Yup.object({
           firstName: Yup.string()
@@ -124,14 +125,24 @@ const RegisterPage = () => {
           email: Yup.string()
             .email("Invalid email addresss`")
             .required("Required"),
-          acceptedTerms: Yup.boolean()
-            .required("Required")
-            .oneOf([true], "You must accept the terms and conditions."),
-          userType: Yup.string()
+          password: Yup.string()
+            .max(20, "Must be 20 characters or less")
+            .required("Required"),
+          // acceptedTerms: Yup.boolean()
+          //   .required("Required")
+          //   .oneOf([true], "You must accept the terms and conditions."),
+          // userType: Yup.string()
 
-            .oneOf(["Chef", "Foodie", "other"], "Invalid User Type")
-            .required("Required")
+          //   .oneOf(["Chef", "Foodie", "other"], "Invalid User Type")
+          //   .required("Required")
         })}
+
+        onSubmit={(values, { setSubmitting, resetForm,setStatus }) => {
+
+          doStuff(values);
+          setSubmitting(false);
+          resetForm();
+        }}
       >
         <Form>
           <TextInput
@@ -152,11 +163,17 @@ const RegisterPage = () => {
             type="email"
             placeholder="Email"
           />
-          <Select label="User Type" name="userType" options={options}>
+            <TextInput
+            label="password"
+            name="password"
+            type="text"
+            placeholder="Password"
+          />
+          {/* <Select label="User Type" name="userType" options={options}>
           </Select>
           <Checkbox name="acceptedTerms">
             I accept the terms and conditions
-          </Checkbox>
+          </Checkbox> */}
 
           <button type="submit">Submit</button>
         </Form>
@@ -165,4 +182,15 @@ const RegisterPage = () => {
   );
 };
 
+function doStuff(values){
+  return axios.post("https://chefs-view.herokuapp.com/auth/register/",values
+    ).then(res => {
+      console.log("success", res);
+      localStorage.setItem('values', res.data.values)
+    })
+    .catch(err =>
+      console.log(err.response)
+    );
+}
+console.log(doStuff);
 export default RegisterPage;
