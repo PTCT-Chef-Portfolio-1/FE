@@ -37,7 +37,7 @@ class login extends Component {
     render() {
         const { errors } = this.state;
         return (
-            <div>
+            <div className="login-page">
                 <h3>Login</h3>
                 <form noValidate onSubmit={this.onSubmit}>
                     {/* <label htmlFor="name"> 
