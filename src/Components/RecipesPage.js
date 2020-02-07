@@ -37,11 +37,11 @@ export default function RecipesPage() {
 
     return (
       
-        <section>
+        <section >
             <Header>Recipes</Header>
             
             <HomeSearch/>
-            <CardWrapper>
+            <CardWrapper className="Recipe-Day" >
                 
                     {recipes.map(recipes => (
                         <RecipeCard 
