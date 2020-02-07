@@ -26,13 +26,11 @@ export default function HomeSearch() {
         .catch(err => {
           console.log("The data was not returned", err);
         })
-      }, [search]);
-
-      console.log(filtered);
+      }, [filtered]);
 
       const handleChange = e => {
-        e.preventDefault();
-        setSearch(e.target.value)
+        console.log("This is the handleChange", e.target.value)
+        setSearch(e.target.value);
             
       };
      
