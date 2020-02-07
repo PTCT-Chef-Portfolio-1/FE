@@ -18,6 +18,7 @@ color: #FD8664;
 font-size: 3.6rem;
 `
 
+
 export default function Home() {
 
     function getRandomInt(max) {
