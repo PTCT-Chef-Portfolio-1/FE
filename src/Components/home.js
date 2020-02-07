@@ -3,7 +3,7 @@ import axios from "axios";
 import styled from 'styled-components';
 
 import RecipeCard from './recipeCard'
-import HomeSearch from './home-search';
+//import HomeSearch from './home-search';
 
 const HomeWrapper = styled.div`
     width: 100%;
