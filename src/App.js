@@ -5,11 +5,11 @@ import Home from './Components/home';
 import RegisterPage from './Components/RegisterPage';
 import NavBar from './Components/NavBar';
 import login from './Components/login'
-import HomeSearch from './Components/home-search';
+// import HomeSearch from './Components/home-search';
 import Dashboard from './Components/dashboard';
 import AddRecipe from './Components/addRecipe';
-
-import PrivateRoute from './PrivateRoute'
+import RecipesPage from './Components/RecipesPage';
+import PrivateRoute from './PrivateRoute';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
     <NavBar />
     <PrivateRoute path="/chefdashboard/:id" component={Dashboard} />
     <PrivateRoute path="/add" component={AddRecipe} />
-    <Route exact path = "/Recipes" component ={HomeSearch} />      
+    <Route exact path = "/Recipes" component ={RecipesPage} />      
     <Route exact path ="/" component={Home} />
     <Route exact path="/login" component={login} />
     <Route path ="/RegisterPage" component={RegisterPage} />
