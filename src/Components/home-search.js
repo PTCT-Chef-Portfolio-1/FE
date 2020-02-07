@@ -61,11 +61,11 @@ export default function HomeSearch() {
                     />
                 ))}
 
-                {/* {filtered.map((filter, index) => {
+                {filtered.map((filter, index) => {
                     return (
                         <RecipeCard filter={filter} key={filter.created} />
                     )
-                })} */}
+                })}
     </div>
    </section>
   );
