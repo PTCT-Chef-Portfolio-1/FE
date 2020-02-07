@@ -9,7 +9,7 @@ export default function HomeSearch() {
     
     useEffect(() => {
       axios
-        .get(`https://chefs-view.herokuapp.com/recipes`)
+        .get(`https://backend-chef.herokuapp.com/api/recipes`)
         .then(res => {
           console.log(res.data)
         //   const filtered = res.data.filter(filter => {
@@ -18,20 +18,21 @@ export default function HomeSearch() {
         //       || filter.chef_name.toLowerCase().includes(search.toLowerCase()) 
         //         || filter.ingredient.toLowerCase().includes(search.toLowerCase())
         //   });
-            const posts = res.data.filter(post => 
-              post.recipe_name.toLowerCase().includes(search.toLowerCase())  
+            const filtered = res.data.filter(filter => 
+              filter.recipe_name.toLowerCase().includes(search.toLowerCase())  
             );
-          setFiltered(posts);
+          setFiltered(filtered);
       })  
         .catch(err => {
           console.log("The data was not returned", err);
         })
       }, [search]);
 
+      console.log(filtered);
+
       const handleChange = e => {
-        console.log("This is the handleChange", e.target.value)
-        setSearch(e.target.value);
         e.preventDefault();
+        setSearch(e.target.value)
             
       };
      
@@ -48,7 +49,7 @@ export default function HomeSearch() {
          />
         <button className="search-button" type="submit">Search</button>
         </label>
-        <div className="searchCards">
+        <div>
              {filtered.map(recipes => (
                  <RecipeCard 
                     chef_name={recipes.chef_name}
