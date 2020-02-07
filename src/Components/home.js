@@ -3,7 +3,6 @@ import axios from "axios";
 import styled from 'styled-components';
 import RecipeCard from './recipeCard'
 
-
 const HomeWrapper = styled.div`
     width: 100%;
     display: flex;

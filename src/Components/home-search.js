@@ -9,7 +9,7 @@ export default function HomeSearch() {
     
     useEffect(() => {
       axios
-        .get(`https://backend-chef.herokuapp.com/api/recipes`)
+        .get(`https://chefs-view.herokuapp.com/recipes`)
         .then(res => {
           console.log(res.data)
         //   const filtered = res.data.filter(filter => {
@@ -18,19 +18,20 @@ export default function HomeSearch() {
         //       || filter.chef_name.toLowerCase().includes(search.toLowerCase()) 
         //         || filter.ingredient.toLowerCase().includes(search.toLowerCase())
         //   });
-            const filtered = res.data.filter(filter => 
-              filter.recipe_name.toLowerCase().includes(search.toLowerCase())  
+            const posts = res.data.filter(post => 
+              post.recipe_name.toLowerCase().includes(search.toLowerCase())  
             );
-          setFiltered(filtered);
+          setFiltered(posts);
       })  
         .catch(err => {
           console.log("The data was not returned", err);
         })
-      }, [filtered]);
+      }, [search]);
 
       const handleChange = e => {
         console.log("This is the handleChange", e.target.value)
         setSearch(e.target.value);
+        e.preventDefault();
             
       };
      
