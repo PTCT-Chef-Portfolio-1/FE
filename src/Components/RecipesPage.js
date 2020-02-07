@@ -8,7 +8,7 @@ const CardWrapper = styled.div`
     display: flex;
     margin: auto;
     padding: 0;
-    justify-content: space-around;
+    justify-content: evenly;
     flex-flow: row wrap;
    
 `;
@@ -42,7 +42,7 @@ export default function RecipesPage() {
             
             <HomeSearch/>
             <CardWrapper>
-                <div>
+                
                     {recipes.map(recipes => (
                         <RecipeCard 
                         chef_name={recipes.chef_name}
@@ -55,7 +55,7 @@ export default function RecipesPage() {
                         servings={recipes.servings}
                         />
                     ))}
-                </div>
+                
             </CardWrapper>
            
 
