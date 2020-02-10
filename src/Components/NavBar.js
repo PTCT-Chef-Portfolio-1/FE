@@ -21,14 +21,14 @@ const Nav = () => {
     <div>
       <nav className={loggedIn ? "logged" : "out"}>
         <Link to={`/chefdashboard/${localStorage.getItem("userId")}`}>
-          <img className="logo" src={require("../images/chef.jpg")} />
+          <img className="logo" src={require("../images/chef.jpg")} alt='hi' />
         </Link>
         <div className="links">
           <Link className="link" to={`/chefdashboard/${localStorage.getItem("userId")}`}>
             Profile
           </Link>
           <Link className="link" to="/guestdashboard">Recipes</Link>
-          <Link className="link" to="/add-recipe">Create Recipe</Link>
+          <Link className="link" to="/add">Create Recipe</Link>
         </div>
         <div className="sign-in-nav-button">
           <Link
@@ -44,7 +44,7 @@ const Nav = () => {
 
       <nav className={!loggedIn ? "logged" : "out"}>
         <Link to="/">
-          <img className="logo" src={require("../images/chef.jpg")} />
+          <img className="logo" src={require("../images/chef.jpg")} alt='hi' />
         </Link>
         <div className="links">
           <Link className="link" to="/recipes">Recipes</Link>

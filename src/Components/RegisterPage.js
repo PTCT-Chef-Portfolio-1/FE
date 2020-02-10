@@ -4,8 +4,6 @@ import axios from "axios";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { TextInput } from "./TextInput";
-import { Checkbox } from "./Checkbox";
-import Select from 'react-styled-select';
 
 // const RegisterPage = () => {
 //   return (
@@ -96,12 +94,12 @@ import Select from 'react-styled-select';
 
 const RegisterPage = () => {
 
-  const options = [
-    { label: "Role", value: 1},
-    { label: "Chef", value: 2},
-    { label: "Foodie", value: 3},
-    { label: "Other", value: 4},
-  ]
+  // const options = [
+  //   { label: "Role", value: 1},
+  //   { label: "Chef", value: 2},
+  //   { label: "Foodie", value: 3},
+  //   { label: "Other", value: 4},
+  // ]
 
   return (
     <>

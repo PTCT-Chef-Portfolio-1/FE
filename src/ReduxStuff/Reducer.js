@@ -10,7 +10,7 @@ import {
   ADD_RECIPE_FAILURE
   } from "./Actions";
 
-  const userId = localStorage.getItem("userId");
+  // const userId = localStorage.getItem("userId");
   const initialState = {
     loggedIn: false,
     fetchingData: false,
