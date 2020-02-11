@@ -5,9 +5,7 @@ import { addRecipe } from '../ReduxStuff/Actions';
 
 const CreateRecipe = props => {
     let userId= localStorage.getItem('userId')
-    const [recipe, setRecipe] = useState({
-        userId: userId
-    });
+    const [recipe, setRecipe] = useState({});
 
     const handleChanges = e => {
         setRecipe({ ...recipe, [e.target.name]: e.target.value });
@@ -27,8 +25,8 @@ const CreateRecipe = props => {
                 <input
                     className="name"
                     type="text"
-                    name="recipe_name"
-                    value={recipe.recipe_name}
+                    name="recipeTitle"
+                    value={recipe.recipeTitle}
                     onChange={handleChanges}
                 />
             </span>
@@ -54,8 +52,8 @@ const CreateRecipe = props => {
                 <p>Servings</p>
                 <input
                     type="text"
-                    name="servings"
-                    value={recipe.servings}
+                    name="mealType"
+                    value={recipe.mealType}
                     onChange={handleChanges}
                 />
             </span>

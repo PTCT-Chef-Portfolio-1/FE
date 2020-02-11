@@ -25,10 +25,10 @@ import {
     },
     recipe: [
       {
-        recipe_name: "",
+        recipeTitle: "",
         prep_time: "",
         cook_time: "",
-        servings: "",
+        mealType: "",
         recipe_photo: "",
         ingredients: "",
         instructions: "",

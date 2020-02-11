@@ -10,7 +10,7 @@ export const DELETE_LOGIN = 'DELETE_LOGIN';
 export const login = credentials => dispatch => {
     dispatch({ type: LOGIN_START });
         return AxiosWithAuth() 
-            .post('/login', credentials)
+            .post('auth/login', credentials)
             .then(res => {
                 localStorage.setItem('token', res.data.payload);
                 dispatch({ type: LOGIN_SUCCESS })
@@ -23,7 +23,7 @@ export const login = credentials => dispatch => {
 export const getData = () => dispatch => {
     dispatch({ type: GET_DATA_START });
     AxiosWithAuth()
-        .get('/RegisterPage')
+        .get('auth/register')
         .then(response => {
             dispatch({ type: GET_DATA_SUCCESS, payload: response.data });
         })
@@ -40,13 +40,14 @@ export const addRecipe = recipe => dispatch => {
   dispatch({ type: ADD_RECIPE_START, payload: recipe });
   console.log(recipe);
   AxiosWithAuth()
-    .post("/recipes/post", recipe)
+    .post("/recipes", recipe)
     .then(res => {
       dispatch({ type: ADD_RECIPE_SUCCESS });
 
       console.log(`this is the response ${res.data}`);
     })
     .catch(err => {
+        console.log(`error: `, err);
       dispatch({ type: ADD_RECIPE_FAILURE, payload: err.response });
     });
 };
